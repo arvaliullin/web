@@ -1,5 +1,5 @@
-#include "BoldText.h"
-#include "CursiveText.h"
+#include "BoldDecorator.h"
+#include "CursiveDecorator.h"
 #include "Text.h"
 
 #include <iostream>
@@ -11,21 +11,21 @@ int main() {
   text->Draw();
   std::cout << std::endl;
 
-  std::unique_ptr<VisualComponent> bold_text(new BoldText(text));
+  std::unique_ptr<VisualComponent> bold_text(new BoldDecorator(text));
   bold_text->Draw();
   std::cout << std::endl;
-
-  std::unique_ptr<VisualComponent> cursive_text(new CursiveText(text));
+  
+  std::unique_ptr<VisualComponent> cursive_text(new CursiveDecorator(text));
   cursive_text->Draw();
   std::cout << std::endl;
 
   std::unique_ptr<VisualComponent> cursive_bold_text(
-      new CursiveText(std::make_shared<BoldText>(text)));
+      new CursiveDecorator(std::make_shared<BoldDecorator>(text)));
   cursive_bold_text->Draw();
   std::cout << std::endl;
 
   std::unique_ptr<VisualComponent> bold_cursive_text(
-      new BoldText(std::make_shared<CursiveText>(text)));
+      new BoldDecorator(std::make_shared<CursiveDecorator>(text)));
   bold_cursive_text->Draw();
   std::cout << std::endl;
 
