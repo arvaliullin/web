@@ -1,0 +1,5 @@
+@media (min-width : 560px) {
+    .title > h1 {
+        font-size: 2.25rem;
+    }
+}
